@@ -1,12 +1,13 @@
-# perl-build
+# perl-build docker image
 
-This docker image installs make, gcc and [perl-build]() to /usr/bin/perl-build on CentOS
+This docker image installs make, gcc and [perl-build]() to /usr/bin/perl-build on ubuntu
 
 ## Usage
 
 ```
 $ docker run -t -i kazeburo/perl-build bash -l
-bash-4.1# perl-build 5.16.2 /opt/perl-5.16/
+root@2599e6978e69:/# --version
+1.08
 ```
 
 or Dockerfile

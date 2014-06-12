@@ -1,13 +1,11 @@
-FROM centos:latest
+FROM ubuntu:trusty
 MAINTAINER Masahiro Nagano <kazeburo@gmail.com>
 
-# fix locale error. requires for centos:latest
-RUN yum -y reinstall glibc-common
-
-RUN yum -y install tar bzip2
-RUN yum -y install perl gcc make 
-RUN yum -y install patch
-RUN yum clean all
+ENV DEBIAN_FRONTEND noninteractive
+RUN locale-gen en_US.UTF-8 && dpkg-reconfigure locales
+RUN apt-get update 
+RUN apt-get -y install git curl
+RUN apt-get -y install perl build-essential
 RUN curl -s https://raw.githubusercontent.com/tokuhirom/Perl-Build/master/perl-build > /usr/bin/perl-build
 RUN perl -pi -e 's%^#!/usr/bin/env perl%#!/usr/bin/perl%g' /usr/bin/perl-build
 RUN chmod +x /usr/bin/perl-build
