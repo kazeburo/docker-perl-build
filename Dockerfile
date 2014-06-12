@@ -11,4 +11,6 @@ RUN curl -s https://raw.githubusercontent.com/tokuhirom/Perl-Build/master/perl-b
 RUN perl -pi -e 's%^#!/usr/bin/env perl%#!/usr/bin/perl%g' /usr/bin/perl-build
 RUN chmod +x /usr/bin/perl-build
 
+RUN perl-build --version
 CMD perl-build --version
+
